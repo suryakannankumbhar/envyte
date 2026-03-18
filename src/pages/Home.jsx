@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom';
 
 const TEMPLATES = [
-  { id: 'city', name: 'City', category: 'Hindu Weddings', price: 'INR 3999', img: 'https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&q=80&w=800' },
-  { id: 'beach', name: 'Beach', category: 'Hindu Weddings', price: 'INR 3999', img: 'https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?auto=format&fit=crop&q=80&w=800' },
-  { id: 'mountain', name: 'Mountain', category: 'Hindu Weddings', price: 'INR 3999', img: 'https://images.unsplash.com/photo-1595815771614-ade9d652a65d?auto=format&fit=crop&q=80&w=800' },
-  { id: 'meenaya', name: 'Meenaya', category: 'South Indian Weddings', price: 'INR 3999', img: 'https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&q=80&w=800' },
-  { id: 'laavan', name: 'Laavan', category: 'Sikh Weddings', price: 'INR 3999', img: 'https://images.unsplash.com/photo-1543783207-ec64e4d95325?auto=format&fit=crop&q=80&w=800' },
-  { id: 'raabta', name: 'Raabta', category: 'Muslim Weddings', price: 'INR 3999', img: 'https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&q=80&w=800' }
+  { id: 'city', name: 'City', category: 'Hindu Weddings', price: 'INR 499', img: 'https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&q=80&w=800' },
+  { id: 'beach', name: 'Beach', category: 'Hindu Weddings', price: 'INR 499', img: 'https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?auto=format&fit=crop&q=80&w=800' },
+  { id: 'mountain', name: 'Mountain', category: 'Hindu Weddings', price: 'INR 499', img: 'https://images.unsplash.com/photo-1595815771614-ade9d652a65d?auto=format&fit=crop&q=80&w=800' },
+  { id: 'meenaya', name: 'Meenaya', category: 'South Indian Weddings', price: 'INR 499', img: 'https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&q=80&w=800' },
+  { id: 'laavan', name: 'Laavan', category: 'Sikh Weddings', price: 'INR 499', img: 'https://images.unsplash.com/photo-1543783207-ec64e4d95325?auto=format&fit=crop&q=80&w=800' },
+  { id: 'raabta', name: 'Raabta', category: 'Muslim Weddings', price: 'INR 499', img: 'https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&q=80&w=800' }
 ];
 
 export default function Home() {
