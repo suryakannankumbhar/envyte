@@ -1,19 +1,20 @@
 import { Link } from 'react-router-dom';
+import Navbar from '../components/Navbar'; // <-- IMPORT NAVBAR
 
 const TEMPLATES = [
-  { id: 'city', name: 'City', category: 'Hindu Weddings', price: 'INR 499', img: 'https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&q=80&w=800' },
-  { id: 'beach', name: 'Beach', category: 'Hindu Weddings', price: 'INR 499', img: 'https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?auto=format&fit=crop&q=80&w=800' },
-  { id: 'mountain', name: 'Mountain', category: 'Hindu Weddings', price: 'INR 499', img: 'https://images.unsplash.com/photo-1595815771614-ade9d652a65d?auto=format&fit=crop&q=80&w=800' },
-  { id: 'meenaya', name: 'Meenaya', category: 'South Indian Weddings', price: 'INR 499', img: 'https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&q=80&w=800' },
-  { id: 'laavan', name: 'Laavan', category: 'Sikh Weddings', price: 'INR 499', img: 'https://images.unsplash.com/photo-1543783207-ec64e4d95325?auto=format&fit=crop&q=80&w=800' },
-  { id: 'raabta', name: 'Raabta', category: 'Muslim Weddings', price: 'INR 499', img: 'https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&q=80&w=800' }
+  { id: 'city', name: 'City', category: 'Hindu Weddings', price: 'INR 3999', img: 'https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&q=80&w=800' },
+  { id: 'beach', name: 'Beach', category: 'Hindu Weddings', price: 'INR 3999', img: 'https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?auto=format&fit=crop&q=80&w=800' },
+  { id: 'mountain', name: 'Mountain', category: 'Hindu Weddings', price: 'INR 3999', img: 'https://images.unsplash.com/photo-1595815771614-ade9d652a65d?auto=format&fit=crop&q=80&w=800' },
+  { id: 'meenaya', name: 'Meenaya', category: 'South Indian Weddings', price: 'INR 3999', img: 'https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&q=80&w=800' },
+  { id: 'laavan', name: 'Laavan', category: 'Sikh Weddings', price: 'INR 3999', img: 'https://images.unsplash.com/photo-1543783207-ec64e4d95325?auto=format&fit=crop&q=80&w=800' },
+  { id: 'raabta', name: 'Raabta', category: 'Muslim Weddings', price: 'INR 3999', img: 'https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&q=80&w=800' }
 ];
 
 export default function Home() {
   return (
-    <div className="relative w-full bg-[#0a0a0c] text-white overflow-x-hidden font-sans">
+    <div className="relative w-full bg-[#0a0a0c] text-white overflow-x-hidden font-sans pt-[72px]">
+      <Navbar /> {/* <-- RENDER NAVBAR */}
       
-      {/* --- FONTS & ANIMATIONS --- */}
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap');
         .font-serif { font-family: 'Cormorant Garamond', serif; }
@@ -24,15 +25,11 @@ export default function Home() {
         @keyframes float-4 { 0%, 100% { transform: translateY(0) rotate(15deg); } 50% { transform: translateY(-25px) rotate(12deg); } }
       `}</style>
 
-      {/* =========================================
-          SECTION 1: THE HERO 
-          ========================================= */}
-      <div className="relative min-h-screen flex flex-col items-center justify-center pt-20 pb-32">
-        {/* Ambient Glows */}
+      {/* SECTION 1: THE HERO */}
+      <div className="relative min-h-[calc(100vh-72px)] flex flex-col items-center justify-center pb-32">
         <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-amber-500/5 blur-[120px] rounded-full pointer-events-none"></div>
         <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-rose-500/5 blur-[120px] rounded-full pointer-events-none"></div>
 
-        {/* Floating Mockups */}
         <div className="absolute top-[10%] md:top-[12%] left-[4%] md:left-[12%] w-[140px] h-[280px] md:w-[200px] md:h-[400px] rounded-[2rem] border-[4px] border-[#222] bg-gray-900 shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden opacity-50 z-0 hidden sm:block" style={{ animation: 'float-1 8s ease-in-out infinite' }}>
           <img src={TEMPLATES[0].img} alt="City" className="w-full h-full object-cover opacity-90" />
           <div className="absolute inset-0 border-[4px] border-black/20 rounded-[1.8rem] pointer-events-none"></div>
@@ -48,8 +45,7 @@ export default function Home() {
           <img src={TEMPLATES[3].img} alt="Meenaya" className="w-full h-full object-cover opacity-90" />
         </div>
 
-        {/* Hero Content */}
-        <div className="relative z-10 flex flex-col items-center text-center px-8 max-w-4xl mx-auto">
+        <div className="relative z-10 flex flex-col items-center text-center px-8 max-w-4xl mx-auto pt-10">
           <div className="inline-block mb-8 px-5 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-md shadow-lg">
             <p className="text-[11px] font-semibold tracking-[0.25em] text-amber-400 uppercase">Premium Digital Invites</p>
           </div>
@@ -76,50 +72,39 @@ export default function Home() {
         </div>
       </div>
 
-      {/* =========================================
-          SECTION 2: PRODUCT GRID 
-          ========================================= */}
-      <div className="relative z-20 bg-[#fdfdfd] text-black py-24 px-6 md:px-12 lg:px-24 rounded-t-[3rem]">
+      {/* SECTION 2: PRODUCT GRID */}
+      <div className="relative z-20 bg-[#121214] border-t border-white/10 text-white py-24 px-6 md:px-12 lg:px-24 rounded-t-[3rem]">
         <div className="max-w-7xl mx-auto">
           
           <div className="mb-16">
-            <h2 className="text-4xl md:text-5xl font-serif mb-4 text-gray-900">Choose a Template</h2>
-            <p className="text-gray-500 font-sans max-w-xl text-sm leading-relaxed">Perfect for all weddings — effortless to edit, easy to share. Designed to feel completely yours.</p>
+            <h2 className="text-4xl md:text-5xl font-serif mb-4 text-white">Choose a Template</h2>
+            <p className="text-gray-400 font-sans max-w-xl text-sm leading-relaxed">Perfect for all weddings — effortless to edit, easy to share. Designed to feel completely yours.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16">
             {TEMPLATES.map((template) => (
               <div key={template.id} className="group flex flex-col cursor-pointer">
-                {/* Laptop Mockup Wrapper */}
-                <div className="relative w-full aspect-[4/3] bg-white border border-gray-100 rounded-3xl p-4 md:p-6 mb-6 flex flex-col items-center justify-center shadow-sm group-hover:shadow-2xl transition-all duration-500 overflow-hidden">
-                  
-                  {/* The Fake Laptop */}
-                  <div className="relative w-[95%] aspect-[16/10] bg-black rounded-lg border-[6px] md:border-[8px] border-gray-900 shadow-xl overflow-hidden transform group-hover:-translate-y-2 transition-transform duration-500 z-10">
+                <div className="relative w-full aspect-[4/3] bg-[#1a1a1c] border border-white/10 rounded-3xl p-4 md:p-6 mb-6 flex flex-col items-center justify-center shadow-sm group-hover:border-white/20 transition-all duration-500 overflow-hidden">
+                  <div className="relative w-[95%] aspect-[16/10] bg-black rounded-lg border-[6px] md:border-[8px] border-[#0a0a0c] shadow-2xl overflow-hidden transform group-hover:-translate-y-2 transition-transform duration-500 z-10">
                      <img src={template.img} alt={template.name} className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-300" />
                   </div>
-                  {/* Laptop Base */}
-                  <div className="w-[100%] h-2 bg-gray-300 rounded-b-xl z-0 transform group-hover:-translate-y-2 transition-transform duration-500 mt-[-2px]"></div>
+                  <div className="w-[100%] h-2 bg-[#333] rounded-b-xl z-0 transform group-hover:-translate-y-2 transition-transform duration-500 mt-[-2px]"></div>
 
-                  {/* Top Badges (Hover) */}
                   <div className="absolute top-5 left-5 right-5 flex justify-between items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
-                    <span className="px-3 py-1.5 bg-white/90 backdrop-blur-md rounded-full text-[9px] font-bold text-gray-800 uppercase tracking-widest shadow-sm">
+                    <span className="px-3 py-1.5 bg-black/80 backdrop-blur-md rounded-full text-[9px] font-bold text-white uppercase tracking-widest border border-white/10">
                       {template.category}
-                    </span>
-                    <span className="w-8 h-8 bg-white/90 backdrop-blur-md rounded-full flex items-center justify-center text-gray-800 shadow-sm">
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
                     </span>
                   </div>
                 </div>
 
-                {/* Details Footer */}
                 <div className="flex justify-between items-end px-2">
                   <div className="pr-4">
-                    <h3 className="text-xl md:text-2xl font-sans font-bold text-gray-900 mb-1">{template.name}</h3>
+                    <h3 className="text-xl md:text-2xl font-sans font-bold text-white mb-1">{template.name}</h3>
                     <p className="text-xs text-gray-500 leading-relaxed max-w-[280px]">
                       Perfect for {template.category.toLowerCase()} — effortless to edit, share.
                     </p>
                   </div>
-                  <div className="px-4 py-2 bg-black text-white rounded-full text-[10px] md:text-xs font-bold tracking-widest shrink-0">
+                  <div className="px-4 py-2 bg-amber-500 text-black rounded-full text-[10px] md:text-xs font-bold tracking-widest shrink-0">
                     {template.price}
                   </div>
                 </div>
@@ -128,14 +113,12 @@ export default function Home() {
           </div>
 
           <div className="mt-24 flex justify-center">
-             <Link to="/editor" className="px-10 py-4 border-2 border-black text-black text-sm tracking-widest font-bold rounded-full hover:bg-black hover:text-white transition-colors">
+             <Link to="/editor" className="px-10 py-4 border-2 border-white/20 text-white text-sm tracking-widest font-bold rounded-full hover:bg-white hover:text-black transition-colors">
                Explore Editor
              </Link>
           </div>
-
         </div>
       </div>
-
     </div>
   );
 }
