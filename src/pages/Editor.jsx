@@ -53,9 +53,9 @@ export default function Editor() {
   const [isPublishing, setIsPublishing] = useState(false);
   const [loading, setLoading] = useState(isEditing);
   const [showSuccess, setShowSuccess] = useState(false);
+  
+  // View states
   const [activeTab, setActiveTab] = useState('details'); 
-
-  // Mobile view toggle state
   const [showPreviewOnMobile, setShowPreviewOnMobile] = useState(false);
 
   useEffect(() => {
@@ -128,14 +128,16 @@ export default function Editor() {
       if (isEditing) {
         const docRef = doc(db, "invites", existingInviteId);
         await updateDoc(docRef, finalInviteData);
-        setPublishedLink(`http://localhost:5173/invite/${existingInviteId}`);
+        // FIX: Replaced localhost with window.location.origin
+        setPublishedLink(`${window.location.origin}/invite/${existingInviteId}`);
         setShowSuccess(true);
       } else {
         finalInviteData.createdAt = new Date().toISOString();
         const customSlug = generateSlug(inviteData.bride, inviteData.groom);
         await setDoc(doc(db, "invites", customSlug), finalInviteData);
         
-        const newLink = `http://localhost:5173/invite/${customSlug}`;
+        // FIX: Replaced localhost with window.location.origin
+        const newLink = `${window.location.origin}/invite/${customSlug}`;
         setPublishedLink(newLink);
         setShowSuccess(true);
         navigate('.', { replace: true, state: { inviteId: customSlug } });
@@ -153,7 +155,6 @@ export default function Editor() {
   if (loading) return <div className="p-20 text-center text-gray-500 font-medium">Loading editor...</div>;
 
   return (
-    // Changed layout classes here for responsiveness
     <div className="flex flex-col md:flex-row h-screen w-full overflow-hidden bg-gray-100">
       
       {/* --- MOBILE PREVIEW TOGGLE --- */}
@@ -241,7 +242,6 @@ export default function Editor() {
                       Remove
                     </button>
                     
-                    {/* Switched to a single column on mobile, 2 columns on larger screens */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3 pr-0 sm:pr-10 mt-6 sm:mt-0">
                       <div>
                         <label className="block text-[10px] font-bold text-gray-500 uppercase mb-1">Function</label>
@@ -302,7 +302,6 @@ export default function Editor() {
               {inviteData.theme === 'location_vibe' && (
                 <div className="animate-[fadeIn_0.3s_ease-out] pt-4 border-t border-gray-100">
                   <label className="block text-sm font-bold text-gray-900 mb-4">Choose Destination</label>
-                  {/* Changed grid to handle small screens better */}
                   <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                     {Object.keys(LOCATION_VIBES).map(vibeKey => {
                       const vibe = LOCATION_VIBES[vibeKey];
@@ -361,7 +360,6 @@ export default function Editor() {
 
       {/* --- RIGHT PANEL: PREVIEW --- */}
       <div className={`${!showPreviewOnMobile ? 'hidden' : 'flex'} md:flex flex-1 items-center justify-center bg-stone-200 p-4 sm:p-8 overflow-hidden h-[calc(100vh-48px)] md:h-screen`}>
-        {/* The scaling wrapper ensures the phone fits on smaller screens without breaking layout */}
         <div className="relative w-full max-w-[375px] h-[80vh] md:h-[750px] max-h-[850px] bg-white shadow-2xl overflow-hidden border-[10px] md:border-[14px] border-gray-900 rounded-[2.5rem] md:rounded-[3rem] ring-1 ring-black/5 flex-shrink-0">
           <div className="absolute top-2 left-1/2 -translate-x-1/2 h-5 md:h-6 w-24 md:w-32 bg-gray-900 rounded-full z-20"></div>
           <div className="h-full w-full overflow-y-auto no-scrollbar pb-10 relative">
